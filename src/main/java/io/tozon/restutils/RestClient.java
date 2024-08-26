@@ -14,13 +14,13 @@ import java.util.Objects;
 public class RestClient {
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     //Logging Interceptor
-    private static HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
+    private static final HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
     //builder
-    private static OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+    private static final OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
     /*
      * Utility methods to make REST calls using OkHttp
      */
-    private String baseUrl;
+    private final String baseUrl;
     private Map<String, String> headers;
 
     RestClient(String baseUrl, Map<String, String> headers) {
@@ -31,6 +31,7 @@ public class RestClient {
     public static RestClientBuilder builder() {
         return new RestClientBuilder();
     }
+
 
 
     /**
