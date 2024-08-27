@@ -33,7 +33,6 @@ public class RestClient {
     }
 
 
-
     /**
      * Performs a GET request
      *
